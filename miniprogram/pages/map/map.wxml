@@ -1,0 +1,42 @@
+<map 
+  id="map" 
+  scale="{{defaultScale}}" 
+  longitude='{{longitude}}' 
+  latitude='{{latitude}}' 
+  style='height:{{windowHeight}}px' 
+  markers="{{stores}}" 
+  subkey="{{mapSubKey}}" 
+  show-compass="{{true}}"
+  bindmarkertap="onMarkerTap">
+   <!-- 上方的添加提醒 -->
+    <block wx:if="{{!hideMe}}">
+      <cover-view class="add_me" bindtap="hideMe">添加到【我的小程序】更快找到我</cover-view>
+      <cover-view class="up" bindtap="hideMe"></cover-view>
+    </block>
+    <!-- 管理入口 -->
+    <cover-view class="cover" wx:if="{{showAdmin}}">
+      <button 
+        class='button' 
+        open-type='getUserInfo' 
+        bindgetuserinfo='getUserInfo' 
+        bindlongpress='getOpenID' lang='zh_CN'>管理入口</button>
+    </cover-view>
+    <!-- 搜索按钮 -->
+    <cover-view wx:else class="search-cover">
+	  <view class="search-box">
+		<view>
+		  <image class="search-icon" bindtap="search" src="../../images/Search.png"></image>
+		</view>
+        <input class="search-input"
+          value="{{ searchKey }}"
+          bindinput="updateSearchKey"
+          placeholder="请输入要搜索的店名/美食等关键词..."/>
+	  </view>
+	</cover-view>
+    
+</map>
+<view>
+    <view>
+        <image bindtap="addStore" class="addTopicBtn" src="../../images/newActivity.png"></image>
+    </view>
+</view>

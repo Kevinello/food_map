@@ -1,0 +1,83 @@
+<!--activity.wxml-->
+<wxs module="func">
+  module.exports = {
+    // 字符串截取
+    subString: function (value) {
+      if (value.length > 200){
+          return value.substring(0,200) + "...";
+      }
+      else{
+          return value;
+      }
+    }
+  }
+</wxs>
+<block wx:if="{{hasUserinfo && hasIdentity}}">
+    <scroll-view scroll-y="true" class="container bg-color"
+    upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" 
+    scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" enable-back-to-top="true">
+        
+        <view>
+            <block wx:if="{{feed.length > 0}}">
+                <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+                    <view class="feed-item">
+                        <view class="feed-source">
+                            <view class="avatar flex-wrp">
+                                <image src="{{item.userInfo.avatarUrl}}"></image>
+                            </view>
+                            <text class="flex-wrp">{{item.userInfo.nickName}}</text>
+                        </view>
+                        <view class="feed-content">
+                            <view class="question" bindtap="bindItemTap" data-idx="{{idx}}">
+                                <a class="question-link">
+                                    <text>{{item.name}}</text>
+                                </a>
+                            </view>
+                            <view class="answer-body">
+                                <view data-idx="{{idx}}" bindtap="bindItemTap">
+                                    <text class="answer-txt">{{func.subString(item.description)}}</text>
+                                </view>
+                                <view class="answer-actions">
+                                    <view>
+                                        <view class="like dot">
+                                            <a>{{item.memberTakeIn.length}} 参加 </a>
+                                        </view>
+                                        <view class="comments dot">
+                                            <a>{{item.read}} 阅读 </a>
+                                        </view>
+                                        <view class="collect">
+                                            <a>{{item.collect}} 收藏 </a>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </block>
+            <block wx:else>
+                <view class="no-activity">
+                    <view class="no-activity-text1">这里空空的~</view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+
+    <view>
+        <view>
+            <image bindtap="upper" class="refreshBtn" src="../../images/refresh.png"></image>
+        </view>
+    </view>
+</block>
+
+<block wx:else>
+  <view class="flex-column container">
+    <view class="tip flex-column" style="justify-content: center;">
+      <text>尚未进行身份认证/微信授权登录,</text>
+      <text>请返回我的信息页面进行身份认证/微信授权登录</text>
+    </view>
+    <button class="back-button" bindtap="jump_more">
+      我的信息
+    </button>
+  </view>
+</block>

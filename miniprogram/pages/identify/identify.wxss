@@ -1,0 +1,123 @@
+.page{
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background-color: #FCF5EF;
+}
+.user {
+  min-width: 96%;
+  max-width: 96%;
+  background: #fff;
+  padding: 30rpx 25rpx 30rpx 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #dcdcdc;
+  margin: auto;
+  border-radius: 15rpx;
+}
+.user .avatar{
+  max-height: 100%;
+  padding: 10px;
+}
+.user .userinfo-avatar{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+.user .user-info{
+  max-height: 20%;
+  align-items: flex-start;
+}
+.user .user-info .userinfo-nickname{
+  padding: 8rpx 0 10rpx 0;
+  font-size: 40rpx;
+  color: #818A8F;
+}
+.user .user-info .edit{
+  font-size: 30rpx;
+  color: #bababa;
+  padding: 5rpx 0 10rpx 0;
+  line-height: 34rpx;
+}
+.above-title{
+  margin: 30rpx 0 40rpx 5%;
+  display: flex;
+  align-self: flex-start;
+  height: 30px;
+  min-width: 50%;
+  max-width: 50%;
+  border-bottom: solid 1px rgb(92,169,225);
+}
+.main{
+  width: 95%;
+  background-color: white;
+  border-radius: 10rpx;
+}
+.above-title-text{
+  font-size: 40rpx;
+  line-height: 45rpx;
+  font-weight: 600;
+  color:rgb(92,169,225);
+  display: flex;
+}
+.above-title-image{
+  width: 45rpx;
+  height: 45rpx;
+  display: flex;
+  margin: 0 15px 0 5px;
+}
+.main-title-text{
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #8c8c8c;
+  display: flex;
+  max-width: 20%;
+  min-width: 10%;
+}
+.main-title-image{
+  max-width: 6%;
+  min-width: 6%;
+  max-height: 1.2rem;
+  margin: 0.4rem 2% 0.4rem 2%;
+  display: flex;
+}
+
+
+.input{
+  min-width: 96%;
+  max-width: 96%;
+  display: flex;
+  margin: 0 0 2% 0
+}
+
+.top-half{
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 45%;
+  max-height: 45%;
+  display: flex;
+  top: 0%;
+  position: absolute;
+  margin-bottom: 20rpx;
+}
+.bottom-half{
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 45%;
+  max-height: 45%;
+  display: flex;
+  bottom: 10%;
+  position: absolute;
+}
+.save{
+  min-width: 50%;
+  max-width: 50%;
+  border-radius: 25rpx;
+  background-color: #ffffff;
+}
+
+.border-top,
+.border-bottom
+{
+  border-radius: 10rpx;
+}
+

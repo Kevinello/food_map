@@ -1,0 +1,151 @@
+<!--logs.wxml-->
+<wxs module="func">
+  module.exports = {
+    // 字符串截取
+    subString: function (value) {
+      if (value.length > 200){
+          return value.substring(0,200) + "...";
+      }
+      else{
+          return value;
+      }
+    }
+  }
+</wxs>
+<block wx:if="{{hasUserinfo && hasIdentity}}">
+    <view class="pages bg-color">
+        <view class="cu-bar search search-top bg-white">
+            <view class="search-form round">
+                <text class="cuIcon-search" bindtap="jump"></text>
+                <input type="text" placeholder="输入关键字搜索" confirm-type="search" focus="false" confirm-type="search" bindinput="getInput" bindconfirm="jump"></input>
+            </view>
+            <view class="action">
+                <button class="cu-btn round shadow-blur" bindtap="search">搜索</button>
+            </view>
+        </view>
+
+        <view class="bottom-tab flex-wrp flex-tab">
+        <view class="bottomtab flex-item {{currentNavtab==idx ? 'active' : ''}}" wx:for="{{navTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab1">
+            {{itemName}}
+        </view>
+        </view>
+
+        <view class="bottom1-tab flex-wrp flex1-tab" style="top:205rpx">
+        <view class="bottomtab1 flex1-item {{currentRestab==idx ? 'active' : ''}}" wx:for="{{resTab}}" wx:for-index="idx" wx:for-item="itemName" data-idx="{{idx}}" bindtap="switchTab2">
+            <text>{{itemName}}</text>
+        </view>
+        </view>
+
+        <scroll-view scroll-y="true" class="container bg-color" upper-threshold="10" lower-threshold="5" bindscrolltolower="lower"
+        scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" enable-back-to-top="true">
+            
+            <block wx:if="{{currentRestab == 0}}">
+                <block wx:for="{{feed_1}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+                    <view class="feed-item">
+                        <view class="question_act" data-idx="{{idx}}">
+                            <a >
+                                <text style="font-size:20px" class="flex-wrp">{{item.name}}</text>
+                            </a>
+                        </view>
+                        <view class="feed-source">
+                                <text style="font-size:15px;margin:0" class="flex-wrp">创建者： </text>
+                                <view class="avatar flex-wrp">
+                                    <image src="{{item.creator_userInfo.avatarUrl}}"></image>
+                                </view>
+                                <text style="font-size:15px" class="flex-wrp">{{item.creator_userInfo.nickName}}</text>
+                        </view>
+                        <view class="feed-content">
+                            <view class="answer-body">
+                                <view data-idx="{{idx}}" class="org-answer-container">
+                                    <text class="answer-txt flex-wrp">{{func.subString(item.description)}}</text>
+                                </view>
+                                <view class="answer-actions">
+                                    <view>
+                                        <view class="like dot">
+                                            <a>{{item.member.length}} 成员 </a>
+                                        </view>
+                                        <view class="like">
+                                            <a>{{item.activity.length}} 活动 </a>
+                                        </view>
+                                    </view>
+                                    <view class="item-more collect" style="font-size:15px;" bindtap="joinOrganization" data-idx="{{idx}}">
+                                        <text>加入美食群</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </block>
+
+            <block wx:else>
+                <block wx:for="{{feed_2}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+                    <view class="feed-item">
+                        <view class="feed-source">
+                            <view class="avatar flex-wrp">
+                                <image src="{{item.userInfo.avatarUrl}}"></image>
+                            </view>
+                            <text class="flex-wrp">{{item.userInfo.nickName}}</text>
+                        </view>
+                        <view class="feed-content">
+                            <view class="question" bindtap="bindItemTap" data-idx="{{idx}}">
+                                <a class="question-link">
+                                    <text>{{item.name}}</text>
+                                </a>
+                            </view>
+                            <view class="answer-body">
+                                <view data-idx="{{idx}}" bindtap="bindItemTap" class="answer-container">
+                                    <text class="answer-txt">{{func.subString(item.description)}}</text>
+                                </view>
+                                <view class="answer-actions">
+                                    <view>
+                                        <view class="like dot">
+                                            <a>{{item.memberTakeIn.length}} 参加 </a>
+                                        </view>
+                                        <view class="comments dot">
+                                            <a>{{item.read}} 阅读 </a>
+                                        </view>
+                                        <view class="collect">
+                                            <a>{{item.collect}} 收藏 </a>
+                                        </view>
+                                    </view>
+                                    <view class="item-more participateIn" bindtap="participateInActivity" data-idx="{{idx}}">
+                                        <text>参加活动</text>
+                                    </view>
+                                    <view class="item-more collect" bindtap="collectActivity" data-idx="{{idx}}">
+                                        <text>收藏活动</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block> 
+            </block>
+        </scroll-view>
+    </view>
+
+    <view>
+        <view>
+            <image bindtap="addTopic" class="addTopicBtn" src="../../images/newActivity.png"></image>
+        </view>
+    </view>
+    <view>
+        <view>
+            <image bindtap="refresh" class="refreshBtn" src="../../images/refresh.png"></image>
+        </view>
+    </view>
+
+
+</block>
+
+<block wx:else>
+  <view class="flex-column container" style="top: 0px">
+    <view class="tip flex-column" style="justify-content: center;">
+      <text>尚未进行身份认证/微信授权登录,</text>
+      <text>请返回我的信息页面进行身份认证/微信授权登录</text>
+    </view>
+    <button class="back-button" bindtap="jump_more">
+      我的信息
+    </button>
+  </view>
+</block>

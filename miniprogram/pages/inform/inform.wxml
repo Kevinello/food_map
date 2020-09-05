@@ -1,0 +1,42 @@
+<scroll-view scroll-y="true" class="container bg-color" upper-threshold="10" lower-threshold="5" scroll-into-view="{{toView}}"
+  scroll-top="{{scrollTop}}" enable-back-to-top="true">
+
+  <view>
+    <!-- <block wx:if="{{feed.length > 0}}"> -->
+    <block>
+      <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+        <view class="feed-item">
+          <view class="question_act" bindtap="bindItemTap" data-idx="{{idx}}">
+            <a class="question-link">
+              <text style="font-size:20px" class="notice-title flex-wrp">{{item.title}}</text>
+            </a>
+          </view>
+          <view class="feed-content">
+            <view class="feed-source">
+              <view class="inform">
+                <text class="flex-wrp ">{{item.description}}</text>
+              </view>
+            </view>
+            <view class="feed-source">
+              <text style="font-size:15px;rgb(106, 106, 106)" class="flex-wrp">{{item.occurTime}}</text>
+              <block wx:if="{{!item.hasRead}}">
+                <text style="font-size:13px;color:rgb(255, 0, 0)" class="flex-wrp newTip">new</text>
+              </block>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <!-- <block wx:else> -->
+    <!-- <view class="no-activity"> -->
+    <!-- <view class="no-activity-text1">您没有受到任何系统通知哦</view> -->
+    <!-- </view> -->
+    <!-- </block> -->
+  </view>
+</scroll-view>
+
+<view>
+  <view>
+    <image bindtap="refresh" class="refreshBtn" src="../../images/refresh.png"></image>
+  </view>
+</view>

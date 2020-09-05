@@ -1,0 +1,76 @@
+page{
+  background: linear-gradient(white, #D6EAD4); 
+  height: max-content;
+}
+
+.morePage{
+  background: linear-gradient(white, #D6EAD4); 
+  height:100；
+}
+
+.list-container{
+  width: 99%;
+}
+
+.UCenter-bg {
+  background: linear-gradient(160deg,rgb(254, 218, 75), #D6EAD4); 
+  background-size: cover;
+  height: 550rpx;
+  display: flex;
+  justify-content: center;
+  padding-top: 40rpx;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  box-shadow:0px 4px 13px #81B0B2;
+}
+
+.UCenter-bg text {
+  opacity: 0.8;
+}
+
+.UCenter-bg image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.userinfo-avatar{
+  border-radius: 50%;
+}
+
+.UCenter-bg .gif-wave{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  mix-blend-mode: screen;  
+  height: 100rpx;   
+}
+
+.content text{
+  vertical-align: center;
+  font-size: 26rpx;
+}
+
+.new{
+  display: inline-block;
+  margin-left: 20rpx;
+  border-radius: 20rpx;
+  background-color: red;
+  color: white;
+  font-size: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center
+}
+
+.login_button{
+  margin: auto;
+  text-align: center;
+}

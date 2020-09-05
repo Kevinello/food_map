@@ -1,0 +1,66 @@
+<view class="morePage" >
+  <view class="UCenter-bg">
+    <!-- <image src="/images/logo.png" class="png" mode="widthFix"></image> -->
+    <view class="avatar flex-wrp">
+      <image class="userinfo-avatar flex-wrp" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view class="text-xl">
+      <text >{{userInfo.nickName}}</text>
+    </view>
+    <view class="margin-top-sm">
+       <view class="edit">微信号: {{school}}</view>
+       <view class="edit">手机号: {{studentid}}</view>
+    </view>
+  </view>
+
+  <view class="list-container">
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+      <navigator class="cu-item arrow" url="/pages/identify/identify" hover-class="none">
+        <view class="content">
+          <image src="../../images/wode-copy.png" ></image>
+          <text class="text-grey">身份认证</text>
+        </view>
+      </navigator>
+      <navigator class="cu-item arrow" url="/pages/collection/collection" hover-class="none">
+        <view class="content">
+          <image src="../../images/shoucang-copy.png" ></image>
+          <text class="text-grey">我的收藏</text>
+        </view>
+      </navigator>
+      <navigator class="cu-item arrow" url="/pages/inform/inform" hover-class="none">
+        <view class="content">
+          <image src="../../images/inform.png" ></image>
+          <text class="text-grey">系统通知</text>
+          <view class="new" wx:if="{{newmsg!==0}}">{{newmsg}}</view>
+        </view>
+      </navigator>
+      <navigator class="cu-item arrow" url="/pages/activity_admin/activity_admin" hover-class="none">
+        <view class="content">
+          <image src="../../images/admin.png" ></image>
+          <text class="text-grey">活动管理</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+   <view class="login_button"> 
+      <button class="cu-btn bg-blue shadow-blur round" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" >微信授权登录</button>
+     <view wx:else>请升级微信版本</view>
+   </view>
+
+</view>
+
+
+  <!-- <view class="user flex-row">
+    <view class="avatar flex-wrp">
+      <image class="userinfo-avatar flex-wrp" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view class="user-info flex-column">
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="edit">学校: {{school}}</text>
+      <text class="edit">学号: {{studentid}}</text>
+    </view>
+  </view> -->
+
+
+

@@ -1,0 +1,46 @@
+<!--logs.wxml-->
+
+<view class="page flex-column">
+
+  <view class="top-half flex-column" style="justify-content: center;">
+    <view class="above-title">
+      <image src="../../images/identification.png" class="above-title-image" ></image>
+      <text class="above-title-text">当前信息：</text>
+    </view>
+    <view class="user flex-row">
+      <view class="avatar flex-wrp">
+        <image class="userinfo-avatar flex-wrp" src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="user-info flex-column">
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <text class="edit">微信号: {{school}}</text>
+        <text class="edit">手机号: {{studentid}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-half flex-column" style="justify-content: space-around;">
+    <view class="above-title">
+      <image src="../../images/update.png" class="above-title-image"></image>
+      <text class="above-title-text">更新信息：</text>
+    </view>
+
+    <view class="main">
+      <form>
+      	<view class="cu-form-group border-top">
+		         <view class="title">微信号：</view>
+	        	 <input class="input-box" maxlength="20" bindinput="getInputSchool"></input>
+	      </view>
+        <view class="cu-form-group  border-bottom">
+		         <view class="title">手机号：</view>
+	        	 <input class="input-box" maxlength="20" bindinput="getInputId"></input>
+	      </view>
+      </form>
+    </view>
+
+    <button class="cu-btn bg-yellow shadow-blur" bindtap="saveIdentity">保 存 信 息</button>
+  </view>
+
+
+
+</view>

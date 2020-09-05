@@ -1,0 +1,25 @@
+ <view class="search-box">
+  <view>
+    <image class="search-icon" bindtap="search" src="../../images/Search.png"></image>
+  </view>
+  <input class="search-input" bindconfirm="search" maxlength="32" value="{{ searchKey }}" bindinput="updateSearchKey" placeholder="请输入要搜索的店名/美食等关键词..." />
+</view>
+<block wx:if="{{stores}}" wx:for="{{stores}}" wx:key="_id">
+  <navigator url="../info/info?id={{item._id}}">
+    <view class="card">
+      <view class="card_title">{{item.title}}</view>
+      <view class="card_infobar">
+        <view class="card_address">{{item.address}}</view>
+      </view>
+    </view>
+  </navigator>
+</block>
+<block wx:if="{{stores.length == 0 && !searched}}">
+  <view class="not_found">请点击上方搜索框输入要搜索的关键字</view>
+</block>
+<block wx:if="{{searched}}">
+  <view class="no_result_button">
+    没有找到想吃的美食？不妨去看看其他美食?
+    <navigator url="../list/list" open-type="redirect" class="button view_all">查看全部</navigator>
+  </view>
+</block>

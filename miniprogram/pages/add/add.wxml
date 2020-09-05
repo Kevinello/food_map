@@ -1,0 +1,58 @@
+
+<view class="container">
+  <form report-submit='true' onsubmit="createItem">
+    <view class='desc'>名称设定</view>
+    <input placeholder='请输入店铺的名称' name="title" value='{{name}}'></input>
+
+    <view class='desc'>地址设定</view>
+    <view class="location-box">
+      <input class="location-input" placeholder='店铺的门牌号是？' name="address" value='{{address}}'></input>
+      <view>
+        <image bindtap="chooseLocation" class="location-icon" src="../../images/tabBar/map.png"></image>
+      </view>
+    </view>
+
+    <view class='desc'>人均价格设定</view>
+    <input placeholder='单位是元～' name="price_per" type="number" value='{{price_per}}'></input>
+
+    <view class='desc'>关键词设定</view>
+    <input placeholder='比如，上下九步行街，太古汇，家附近' name="keywords" value='{{price_per}}'></input>
+
+    <view class='desc'>个人点评</view>
+    <textarea placeholder='你为大家推荐什么菜呢？' name="notes" value="{{notes}}"></textarea>
+
+    <view class='desc'>评分（5分制）</view>
+    <i-rate count="{{5}}" bind:change="onStarChange" value="{{star}}"></i-rate>
+
+    <view class='desc'>美食照片</view>
+    <view class="photo-add">
+    <form bindsubmit="formSubmit">
+      <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader">
+                        <view class="weui-uploader__hd">
+                            <view class="weui-uploader__info"></view>
+                        </view>
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files">
+                                <block wx:for="{{photosNew}}" wx:for-item="image" wx:for-index="idx" wx:key="{{idx}}">
+                                    <view class="weui-uploader__file">
+                                        <view class="weui-uploader__img" data-src="{{image}}" bindtap="previewImage" style="background-image: url({{image.src}})"></view>
+                                        <image class="cancel" src="/images/cancel.png" bindtap="cancel" data-index="{{idx}}"></image>
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="weui-uploader__input-box" wx:if="{{photosNew.length < 3}}">
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </form>
+</view>
+    <button class='submit' form-type='submit'>创建</button>
+  </form>
+</view>

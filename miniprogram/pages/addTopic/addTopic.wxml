@@ -1,0 +1,60 @@
+<!--miniprogram/pages/addTopic/addTopic.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+	<view class="cu-form-group margin-top">
+    <!-- 选择器 -->
+		<view class="title">所属商家</view>
+		<picker name="organization" bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+			<view class="picker">
+				{{index?picker[index]:'选择'}}
+			</view>
+		</picker>
+	</view>
+
+  <!-- 标题 -->
+  <view class="cu-form-group">
+		<view class="title" >活动标题</view>
+		<input name="title" placeholder="活动标题"></input>
+	</view>
+
+  <!-- 参与人数 -->
+  	<!-- <view class="cu-form-group">
+		<view class="title">参与人数</view>
+		<input placeholder="数字表示"></input>
+	</view> -->
+
+  <!-- 举办地点 -->
+  <view class="cu-form-group">
+		<view class="title" >举办地点</view>
+		<input name="holdPlace" placeholder="举办地点"></input>
+	</view>
+
+  <!-- 举办时间 -->
+  	<view class="cu-form-group">
+		<view class="title">举办日期</view>
+		<picker name="datePicker" mode="date" value="{{date}}" start="2015-09-01" end="2020-12-31" bindchange="DateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+  
+  <view class="cu-form-group margin-bottom">
+		<view class="title">举办时间</view>
+		<picker name="timePicker" mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="TimeChange">
+			<view class="picker">
+				{{time}}
+			</view>
+		</picker>
+	</view>
+
+  <!-- 活动简介 -->
+  <view class="cu-form-group align-start margin-top margin-bottom">
+		<view class="title">活动介绍</view>
+		<textarea name="description" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="活动关键信息等"></textarea>
+	</view>
+
+  <!-- 提交按钮 -->
+  <view class="cu-bar btn-group  margin-top">
+    <button form-type="submit" class="cu-btn bg-yellow shadow-blur round lg" >保存</button>
+  </view>
+</form>

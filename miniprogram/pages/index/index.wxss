@@ -1,0 +1,53 @@
+/**index.wxss**/
+.container{
+  height: 100%;
+}
+
+.slogan{
+  top: 10%;
+  width: 100%;
+  height: 250rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(57,173,235);
+  border-radius: 0 0 80rpx 80rpx;
+}
+
+.slogan view{
+  margin:auto;
+  /* font-size: 75rpx; */
+  font:75rpx "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.cu-bar-box{
+  background-color:#F5DC67;
+  margin-bottom: 20rpx;
+  -webkit-box-shadow:1px 5px 8px #947839;
+}
+
+.cu-bar-box text{
+  color: white;
+}
+
+.container{
+  padding: 0;
+  font-size: 14rpx;
+  color: #000;
+}
+
+.answer-container{
+  width: 660rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-tap{
+  height: 40px;
+}
+
+/*feed-item part is in app.wxss for multiplexing*/
+

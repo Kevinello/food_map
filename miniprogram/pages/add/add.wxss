@@ -1,0 +1,116 @@
+@import "../common/weui.wxss";
+page{
+  background-color: #eee;
+}
+
+.container {
+  width: 90%;
+  margin: 300rpx 5%;
+}
+
+.desc{
+  margin: 20rpx 0;
+  font-size: 30rpx;
+}
+.loactionGroup{
+  padding: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.location-box {
+  width: 100%;
+  display: flex;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+}
+
+.location-input {
+  width: 90%;
+}
+
+.location-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 10rpx 0 0 0;
+}
+
+input{
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  padding: 10rpx;
+}
+textarea{
+  background-color: #fff;
+  border-radius: 10rpx;
+  width:  710rpx;
+  font-size: 30rpx;
+  padding: 10rpx;
+}
+
+.select {
+  width: 60%;
+  margin: 40rpx 20%;
+}
+
+.submit {
+  width: 60%;
+  margin: 40rpx 20%;
+  background: #FFCB01;
+  color: #FFFFFF;
+}
+
+
+.cancel {
+  position: absolute;
+  top: -15rpx;
+  left: -15rpx;
+  width:30rpx;
+  height: 30rpx;
+  z-index: 300;
+}
+
+.photo-add .desc {
+  border-bottom:#eee solid 1px;
+  padding:.5em;
+  background:#FFFFFF;
+}
+
+.photo-add .desc textarea {
+  width:100%;
+  font-size:1em;
+  height:6em;
+}
+
+.photo-add .select-album {
+  font-size:1em;
+  padding:.75em 0 0 0;
+}
+
+.photo-add .select-album .title {
+  padding-bottom:.25em;
+  padding-left:.75em;
+  color:#666;
+  font-size:.875em;
+}
+
+.album-add .btn-box{
+  margin-top: 16rpx;
+  padding: 24rpx 0;
+}
+
+.picker {
+  font-size:1em;
+  padding:.75em;
+  background:#FFFFFF;
+  border-top:#eee solid 1px;
+  border-bottom:#eee solid 1px;
+}
+
+.weui-uploader__img {
+background-size: contain;
+background-repeat: no-repeat;
+background-position: 50% 50%;
+}

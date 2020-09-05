@@ -1,0 +1,44 @@
+<!--activity.wxml-->
+<wxs module="func">
+  module.exports = {
+    // 字符串截取
+    subString: function (value) {
+      if (value.length > 200){
+          return value.substring(0,200) + "...";
+      }
+      else{
+          return value;
+      }
+    }
+  }
+</wxs>
+<scroll-view scroll-y="true" class="container bg-color"
+upper-threshold="10" lower-threshold="5" bindscrolltolower="lower" 
+scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" enable-back-to-top="true">
+        
+    <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+        <view class="feed-item">
+            <view class="feed-content">
+                <view class="feed-source">
+                    <view class="avatar flex-wrp">
+                        <image src="{{item.userInfo.avatarUrl}}"></image>
+                    </view>
+                    <text class="feed-source-txt flex-wrp">{{item.userInfo.nickName}}</text>
+                </view>
+                <view class="feed_act-content">
+                    <text decode="true" space="nbsp" class="flex-wrp">{{item.school}} • {{item.studentid}}</text>
+                </view>
+            </view>
+            <view class="flex-wrp">
+                <button class="manageButton flex-wrp cu-btn text-green line-green shadow" bindtap="accept" data-idx="{{idx}}">同意加入</button>
+                <button class="manageButton flex-wrp cu-btn text-green line-green shadow" bindtap="refuse" data-idx="{{idx}}">拒绝加入</button>
+            </view>
+        </view>
+    </block>
+</scroll-view>
+
+<view>
+    <view>
+        <image bindtap="upper" class="refreshBtn" src="../../images/refresh.png"></image>
+    </view>
+</view>

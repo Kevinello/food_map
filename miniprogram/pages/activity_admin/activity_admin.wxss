@@ -1,0 +1,8 @@
+/* miniprogram/pages/activity_admin/activity_admin.wxss */
+.changeButton{
+  margin: 0px 15px 0px 15px;
+  font-size: 15px;
+  position: absolute;
+  right: 20rpx;
+}
+

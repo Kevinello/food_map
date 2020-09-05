@@ -1,0 +1,53 @@
+<!--answer.wxml-->
+<view class="answer-container">
+    <view class="question" bindtap="toQuestion">
+        <text class="question-title">{{Activity.name}}</text>
+    </view>
+    <view class="answerer-wrp">
+        <view class="bg-half"></view>
+        <view class="answerer flex-wrp">
+            <view class="avatar flex-item">
+                <image src='{{Activity.userInfo.avatarUrl}}'></image>
+            </view>
+            <view class="answerer-info flex-item">
+                <text class="answerer-name">{{Activity.userInfo.nickName}}</text>
+                <text class="answerer-des">{{school}} {{studentid}}</text>
+                <text class="activity-des">{{Activity.startTime}} at {{Activity.holdPlace}}</text>
+                <text class="activity-des">by{{Activity.organization_name}}</text>
+            </view>
+            <view class="follow flex-item" bindtap="participateInActivity">
+                <text>参与
+                活动</text>
+            </view>
+        </view>
+    </view>
+    <view class="answer-content">
+        <text>{{Activity.description}}</text>
+    </view>
+
+    <view class="answer-footer flex-wrp">
+        <view class="read-c flex-item">
+            <view class="read">
+                <image src="../../images/read.png"></image>
+            </view>
+            <view class="read-num">{{Activity.read}}</view>
+        </view>
+        <view class="operation-wrp flex-item">
+            <view class="operation flex-wrp flex-tab">
+                <view class="operation-btn flex-item" bindtap="participateInActivity">
+                    <text>参与活动</text>
+                        <image wx:if="{{istakein}}" src="../../images/flag.png"></image>
+                        <image wx:else src="../../images/Flag-copy.png"></image>
+                    <text>{{Activity.memberTakeIn.length}}</text>
+                </view>
+                <view class="operation-btn flex-item" bindtap="collectActivity">
+                    <text>收藏</text>
+                         <image wx:if="{{iscollected}}" src="../../images/shoucang.png"></image>
+                         <image wx:else src="../../images/shoucang-copy.png"></image>
+                    <text>{{Activity.membercollect.length}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+

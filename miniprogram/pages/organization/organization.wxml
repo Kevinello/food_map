@@ -1,0 +1,92 @@
+<!--organization.wxml-->
+<wxs module="func">
+  module.exports = {
+    // 字符串截取
+    subString: function (value) {
+      if (value.length > 200){
+          return value.substring(0,200) + "...";
+      }
+      else{
+          return value;
+      }
+    }
+  }
+</wxs>
+<view scroll-y class="morePage">
+
+  <view class="UCenter-bg">
+    <view class="avatar flex-wrp">
+      <image class="userinfo-avatar flex-wrp" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view class="text-xl">
+      <text >{{userInfo.nickName}}</text>
+    </view>
+    <view class="margin-top-sm">
+       <view class="edit">微信号: {{school}}</view>
+       <view class="edit">手机号: {{studentid}}</view>
+    </view>
+    <view class="flex-row" style="padding-top:20rpx">
+        <button class="flex-wrp organization-button cu-btn text-green line-green shadow" bindtap="bindItemTap1">查找美食群</button>
+        <button class="flex-wrp organization-button cu-btn text-green line-green shadow" bindtap="bindItemTap2">创建美食群</button>
+    </view>
+  </view>
+
+  <scroll-view scroll-y="true" class="container"
+    upper-threshold="10" lower-threshold="5"
+    scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" enable-back-to-top="true">
+        
+        <view>
+            <block wx:if="{{feed.length > 0}}">
+                <block wx:for="{{feed}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}">
+                <view class="feed-item" bindtap="jump_room">
+                    <view class="question_act" bindtap="bindItemTap" data-idx="{{idx}}">
+                        <a >
+                            <text style="font-size:20px" class="flex-wrp">{{item.name}}</text>
+                        </a>
+                    </view>
+                    <view class="feed-source">
+                            <text style="font-size:20rpx;margin:0" class="flex-wrp">创建者： </text>
+                            <view class="avatar flex-wrp">
+                                <image src="{{item.creator_userInfo.avatarUrl}}"></image>
+                            </view>
+                            <text style="font-size:15px" class="flex-wrp">{{item.creator_userInfo.nickName}}</text>
+                            <block wx:if="{{item.isCreator}}">
+                                <button class="manageButton flex-wrp cu-btn text-green line-green shadow" bindtap="toManage" data-idx="{{idx}}">美食群管理</button>
+                            </block>
+                    </view>
+                    <view class="feed-content">
+                        <view class="answer-body">
+                            <view data-idx="{{idx}}" bindtap="bindItemTap" class="org-answer-container">
+                                <text class="answer-txt flex-wrp" >{{func.subString(item.description)}}</text>
+                            </view>
+                            <view class="answer-actions">
+                                <view>
+                                    <view class="like dot">
+                                        <a>{{item.member.length}} 成员 </a>
+                                    </view>
+                                    <view class="like">
+                                        <a>{{item.activity.length}} 活动 </a>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                        </view>
+                    </view>
+                </block>
+            </block>
+            <block wx:else>
+                <view class="no-activity">
+                    <view class="no-activity-text1">你还没有加入美食群哦</view>
+                    <view class="no-activity-text2">快加入或创建你的美食群吧~</view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+
+    <view>
+        <view>
+            <image bindtap="refresh" class="refreshBtn" src="../../images/refresh.png"></image>
+        </view>
+    </view>
+
+</view>

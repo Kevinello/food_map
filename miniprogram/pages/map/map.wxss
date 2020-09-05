@@ -1,0 +1,81 @@
+map{
+  width: 750rpx;
+}
+
+.show-all-cover{
+  right: 40rpx;
+  bottom: 100rpx;
+  position: absolute;
+}
+
+.search-cover {
+  background-color: #FFFFFF;
+  width: 90%;
+  margin: 0 5%;
+  top: 20rpx;
+  position: absolute;
+  border-radius: 40rpx;
+  box-shadow: 4rpx 4rpx 2rpx #cccccc;
+}
+
+.i-input {
+	color: #FFFFFF;
+}
+
+.search-box {
+	background-color: #FFFFFF;
+	display: flex;
+	width: 100%;
+}
+
+.search-input {
+	color: #000000;
+	background-color: #FFFFFF;
+	width: 80%;
+	margin-top: 30rpx;
+}
+
+.search-icon {
+	background-color: #FFFFFF;
+	width: 50rpx;
+	height: 50rpx;
+	margin: 20rpx 20rpx;
+}
+
+.button {
+  width: 240rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  color: #ffffff;
+  background-color: #FFCB01;
+  font-size: 50rpx;
+}
+
+.btn {
+  width: 240rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  color: #ffffff;
+  background-color: #FFCB01;
+  font-size: 50rpx;
+}
+
+.add_me{
+  font-size:30rpx;
+  color: #fff;
+  background-color: #FFCB01;
+  width: 450rpx;
+  padding:20rpx;
+  position: absolute;
+  right: 10rpx;
+  top:20rpx;
+  text-align: center;
+}
+.up{
+  position: absolute;
+  right:150rpx;
+  top:5rpx;
+  border-right:20rpx solid transparent;
+	border-left:20rpx solid transparent;
+	border-bottom:20rpx solid #FFCB01;
+}
